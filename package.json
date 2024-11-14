@@ -5,7 +5,7 @@
     "build": "rescript",
     "clean": "rescript clean",
     "start": "rescript build -w",
-    "test": "rescript && pta lib/js/test/atomic/*.test.bs.js",
+    "test": "rescript && pta lib/es6/test/atomic/*.res.js",
     "clean-build": "yarn clean && yarn build",
     "clean-start": "yarn clean && yarn start",
     "clean-test": "yarn clean && yarn build test",
@@ -43,5 +43,6 @@
     "type": "git",
     "url": "git://github.com/TheSpyder/rescript-nodejs.git"
   },
-  "packageManager": "yarn@4.0.2"
+  "packageManager": "yarn@4.0.2",
+  "type": "module"
 }
