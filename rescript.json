@@ -6,12 +6,11 @@
       "dir": "src",
       "subdirs": true
     },
-    {
+     {
       "dir": "test",
-      "subdirs": true,
       "type": "dev"
     }
-  ],
+   ],
   "package-specs": [
     {
       "module": "esmodule"
@@ -22,7 +21,8 @@
     "@rescript/core"
   ],
   "bs-dev-dependencies": [
-    "@dusty-phillips/rescript-zora"
+    "@dusty-phillips/rescript-zora",
+    //"rescript-nodejs"
   ],
   "bsc-flags": [
     "-open RescriptCore"
