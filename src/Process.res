@@ -16,11 +16,11 @@ type warning = {
 
 module Events = {
   @send
-  external onBeforeExit: (t, @as("beforeExit") _, @uncurry (int => unit)) => t = "on"
+  external onBeforeExit: (t, @as("beforeExit") _, @uncurry int => unit) => t = "on"
   @send
-  external onDisconnect: (t, @as("disconnect") _, @uncurry (unit => unit)) => t = "on"
+  external onDisconnect: (t, @as("disconnect") _, @uncurry unit => unit) => t = "on"
   @send
-  external onExit: (t, @as("exit") _, @uncurry (int => unit)) => t = "on"
+  external onExit: (t, @as("exit") _, @uncurry int => unit) => t = "on"
   @send
   external onMultipleResolves: (
     t,
@@ -31,7 +31,7 @@ module Events = {
   external onRejectionHandled: (
     t,
     @as("rejectionHandled") _,
-    @uncurry (Js.Promise.t<'a> => unit),
+    @uncurry Js.Promise.t<'a> => unit,
   ) => t = "on"
   @send
   external onUncaughtException: (
@@ -46,14 +46,14 @@ module Events = {
     @uncurry (Js.Exn.t, Js.Promise.t<'a>) => unit,
   ) => t = "on"
   @send
-  external onWarning: (t, @as("warning") _, @uncurry (warning => unit)) => t = "on"
+  external onWarning: (t, @as("warning") _, @uncurry warning => unit) => t = "on"
 
   @send
-  external offBeforeExit: (t, @as("beforeExit") _, @uncurry (int => unit)) => t = "off"
+  external offBeforeExit: (t, @as("beforeExit") _, @uncurry int => unit) => t = "off"
   @send
-  external offDisconnect: (t, @as("disconnect") _, @uncurry (unit => unit)) => t = "off"
+  external offDisconnect: (t, @as("disconnect") _, @uncurry unit => unit) => t = "off"
   @send
-  external offExit: (t, @as("exit") _, @uncurry (int => unit)) => t = "off"
+  external offExit: (t, @as("exit") _, @uncurry int => unit) => t = "off"
   @send
   external offMultipleResolves: (
     t,
@@ -64,7 +64,7 @@ module Events = {
   external offRejectionHandled: (
     t,
     @as("rejectionHandled") _,
-    @uncurry (Js.Promise.t<'a> => unit),
+    @uncurry Js.Promise.t<'a> => unit,
   ) => t = "off"
   @send
   external offUncaughtException: (
@@ -79,14 +79,14 @@ module Events = {
     @uncurry (Js.Exn.t, Js.Promise.t<'a>) => unit,
   ) => t = "off"
   @send
-  external offWarning: (t, @as("warning") _, @uncurry (warning => unit)) => t = "off"
+  external offWarning: (t, @as("warning") _, @uncurry warning => unit) => t = "off"
 
   @send
-  external onBeforeExitOnce: (t, @as("beforeExit") _, @uncurry (int => unit)) => t = "once"
+  external onBeforeExitOnce: (t, @as("beforeExit") _, @uncurry int => unit) => t = "once"
   @send
-  external onDisconnectOnce: (t, @as("disconnect") _, @uncurry (unit => unit)) => t = "once"
+  external onDisconnectOnce: (t, @as("disconnect") _, @uncurry unit => unit) => t = "once"
   @send
-  external onExitOnce: (t, @as("exit") _, @uncurry (int => unit)) => unit = "once"
+  external onExitOnce: (t, @as("exit") _, @uncurry int => unit) => unit = "once"
   @send
   external onMultipleResolvesOnce: (
     t,
@@ -97,7 +97,7 @@ module Events = {
   external onRejectionHandledOnce: (
     t,
     @as("rejectionHandled") _,
-    @uncurry (Js.Promise.t<'a> => unit),
+    @uncurry Js.Promise.t<'a> => unit,
   ) => t = "once"
   @send
   external onUncaughtExceptionOnce: (
@@ -112,7 +112,7 @@ module Events = {
     @uncurry (Js.Exn.t, Js.Promise.t<'a>) => unit,
   ) => t = "once"
   @send
-  external onWarningOnce: (t, @as("warning") _, @uncurry (warning => unit)) => t = "once"
+  external onWarningOnce: (t, @as("warning") _, @uncurry warning => unit) => t = "once"
 
   @send external removeAllListeners: t => t = "removeAllListeners"
 }
@@ -131,9 +131,9 @@ include Events
 @send external exitWithCode: (t, int) => unit = "exit"
 @get external exitCode: t => int = "exitCode"
 @send
-external nextTick: (t, @uncurry (unit => unit)) => unit = "nextTick"
+external nextTick: (t, @uncurry unit => unit) => unit = "nextTick"
 @send
-external nextTickApply1: (t, @uncurry ('a => unit), 'a) => unit = "nextTick"
+external nextTickApply1: (t, @uncurry 'a => unit, 'a) => unit = "nextTick"
 @send
 external nextTickApply2: (t, @uncurry ('a, 'b) => unit, 'a, 'b) => unit = "nextTick"
 @send
@@ -145,7 +145,7 @@ external nextTickApply5: (t, @uncurry ('a, 'b, 'c, 'd, 'e) => unit, 'a, 'b, 'c, 
   "nextTick"
 @send external hrtime: t => (int, int) = "hrtime"
 @send @scope("hrtime")
-external hrtimeBigInt: t => BigInt.t = "bigint"
+external hrtimeBigInt: t => bigint = "fromStringExn"
 @get external stderr: t => Stream.Writable.t<Buffer.t> = "stderr"
 @get external stdin: t => Stream.Readable.t<Buffer.t> = "stdin"
 @get external stdout: t => Stream.Writable.t<Buffer.t> = "stdout"

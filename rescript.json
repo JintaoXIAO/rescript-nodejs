@@ -1,0 +1,30 @@
+{
+  "name": "rescript-nodejs",
+  "namespace": "NodeJs",
+  "sources": [
+    {
+      "dir": "src",
+      "subdirs": true
+    },
+    {
+      "dir": "test",
+      "subdirs": true,
+      "type": "dev"
+    }
+  ],
+  "package-specs": [
+    {
+      "module": "esmodule"
+    }
+  ],
+  "suffix": ".res.js",
+  "bs-dependencies": [
+    "@rescript/core"
+  ],
+  "bs-dev-dependencies": [
+    "@dusty-phillips/rescript-zora"
+  ],
+  "bsc-flags": [
+    "-open RescriptCore"
+  ]
+}

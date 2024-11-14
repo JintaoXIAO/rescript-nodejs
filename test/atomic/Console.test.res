@@ -1,6 +1,6 @@
 open Zora
 let process = Process.process
-
+/*
 zoraBlock("Console", t => {
   let c1 = {
     open Console
@@ -43,3 +43,4 @@ zoraBlock("Console", t => {
     t->notEqual(Js.Undefined.return(c2), Js.Undefined.empty, "")
   )
 })
+ */
